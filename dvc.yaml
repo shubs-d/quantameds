@@ -1,0 +1,27 @@
+stages:
+  pretrain:
+    cmd: python scripts/run_pretrain.py
+    deps:
+      - quantum_kc/training/pretrain.py
+      - quantum_kc/models/
+      - Multimodal Orbscan IIz Dataset 3,000 Axial Power A/
+    outs:
+      - checkpoints/pretrained_encoder.pt
+  
+  finetune:
+    cmd: python scripts/run_finetune.py
+    deps:
+      - checkpoints/pretrained_encoder.pt
+      - quantum_kc/training/finetune.py
+      - ORBSCAN_Dataset/
+    outs:
+      - checkpoints/hybrid_classifier_best.pt
+  
+  evaluate:
+    cmd: python scripts/run_evaluate.py --model-path checkpoints/hybrid_classifier_best.pt
+    deps:
+      - checkpoints/hybrid_classifier_best.pt
+      - quantum_kc/evaluation/evaluate.py
+    outs:
+      - results/metrics.json
+      - results/confusion_matrix.png

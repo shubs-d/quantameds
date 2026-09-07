@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+env.bak/
+venv.bak/
+*.egg-info/
+
+# PyTorch
+*.pt
+*.pth
+
+# DVC
+.dvc/cache
+
+# Project specific
+checkpoints/
+results/
+mlruns/
+mlruns.db
+Images/
+Images.zip
+
+# Logs
+*.log
