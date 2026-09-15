@@ -29,9 +29,29 @@ class Config:
     BATCH_SIZE: int = 32
     PRETRAIN_EPOCHS: int = 100
     FINETUNE_EPOCHS: int = 50
+    DISTILL_EPOCHS: int = 60
     LR_PRETRAIN: float = 1e-3
     LR_FINETUNE: float = 5e-4
+    LR_STUDENT: float = 1e-3       # Student MLP encoder learning rate
+    LR_CLASSICAL_HEAD: float = 1e-3
+    LR_QUANTUM_HEAD: float = 5e-4  # Quantum head may need smaller LR due to gradient scale
     SEED: int = 42
+    N_SEEDS: int = 5               # Number of independent seeds for multi-seed evaluation
+
+    # ── Distillation hyperparameters ──────────────────────────────────
+    # L_total = DISTILL_ALPHA * L_distill + DISTILL_BETA * L_task
+    # Three ablation settings (alpha, beta):
+    #   (1.0, 0.0) → distillation-only
+    #   (0.5, 0.5) → balanced
+    #   (0.0, 1.0) → task-only (sanity check baseline)
+    DISTILL_ALPHA: float = 0.5
+    DISTILL_BETA: float = 0.5
+    DISTILL_ALPHA_GRID: List[float] = field(
+        default_factory=lambda: [1.0, 0.5, 0.0]
+    )
+    DISTILL_BETA_GRID: List[float] = field(
+        default_factory=lambda: [0.0, 0.5, 1.0]
+    )
 
     # ── Quantum backend ───────────────────────────────────────────────
     QML_DEVICE: str = "lightning.qubit"
@@ -41,11 +61,11 @@ class Config:
     BASE_DIR: Path = Path("/home/shubs/Projects/Keratoconus/Dataset")
 
     # Labeled CornOrb dataset (1,454 labeled eye records, 744 patients)
-    LABELED_ROOT: Path = BASE_DIR / "ORBSCAN_Dataset"
+    LABELED_ROOT: Path = BASE_DIR / "data" / "ORBSCAN_Dataset"
     LABELED_CSV: Path = LABELED_ROOT / "clinical_data_and_labels.csv"
 
-    # Unlabeled Orbscan IIz dataset (3,000 axial power maps)
-    UNLABELED_ROOT: Path = BASE_DIR / "Multimodal Orbscan IIz Dataset 3,000 Axial Power A"
+    # Unlabeled Orbscan IIz dataset (2,633 axial power maps)
+    UNLABELED_ROOT: Path = BASE_DIR / "data" / "Multimodal Orbscan IIz Dataset 3,000 Axial Power A"
     UNLABELED_CSV: Path = UNLABELED_ROOT / "metadata_numeric.csv"
     UNLABELED_IMAGES_DIR: Path = UNLABELED_ROOT / "Images"
 
@@ -53,6 +73,12 @@ class Config:
     CHECKPOINT_DIR: Path = BASE_DIR / "checkpoints"
     RESULTS_DIR: Path = BASE_DIR / "results"
     MLFLOW_TRACKING_URI: str = f"sqlite:///{BASE_DIR / 'mlruns.db'}"
+
+    # ── Image normalization ───────────────────────────────────────────
+    # Dataset-specific channel mean/std for pseudo-colored topography maps.
+    # Computed via scripts/compute_dataset_stats.py on 2,633 Stage 1 unlabeled maps.
+    DATASET_MEAN: List[float] = field(default_factory=lambda: [0.3975, 0.4393, 0.2199])
+    DATASET_STD: List[float] = field(default_factory=lambda: [0.2840, 0.3035, 0.2005])
 
     # ── Image channels (stacked as pseudo-RGB) ────────────────────────
     IMAGE_CHANNELS: List[str] = field(
@@ -63,7 +89,39 @@ class Config:
     NORMAL_WEIGHT: float = 0.82  # 1454 / (2 * 889)
     KC_WEIGHT: float = 1.29      # 1454 / (2 * 565)
 
-    # ── Labeled tabular column definitions ────────────────────────────
+    # ── Student tabular feature contract (FIXED — 5 features) ─────────
+    # These 5 features represent what a basic clinical screening provides:
+    # steep-K proxy, cylinder magnitude + direction, and corneal thinning.
+    # DO NOT change this list without updating docs, slides, and all scripts.
+    #
+    # Raw columns from clinical_data_and_labels.csv → final transformed features:
+    #   kmax_value_D              → min-max scaled              (index 0)
+    #   astig_value_D             → log1p → min-max scaled      (index 1)
+    #   astig_axis_deg            → sin(2θ)                     (index 2)
+    #   astig_axis_deg            → cos(2θ)                     (index 3)
+    #   pachy_thinnest_um         → min-max scaled              (index 4)
+    STUDENT_SCALAR_COLS: List[str] = field(
+        default_factory=lambda: ["kmax_value_D", "pachy_thinnest_um"]
+    )
+    STUDENT_SKEWED_COLS: List[str] = field(
+        default_factory=lambda: ["astig_value_D"]
+    )
+    STUDENT_ANGULAR_COLS: List[str] = field(
+        default_factory=lambda: ["astig_axis_deg"]
+    )
+    # Final feature names after transformation (in order, length == 5)
+    STUDENT_FEATURE_NAMES: List[str] = field(
+        default_factory=lambda: [
+            "kmax_value_D",
+            "astig_value_D_log",
+            "astig_axis_sin",
+            "astig_axis_cos",
+            "pachy_thinnest_um",
+        ]
+    )
+    STUDENT_INPUT_DIM: int = 5  # Must equal len(STUDENT_FEATURE_NAMES)
+
+    # ── Full labeled tabular column definitions ────────────────────────
     #   Angular axes → sin(2θ) / cos(2θ) encoding
     LABELED_ANGULAR_COLS: List[str] = field(
         default_factory=lambda: ["astig_axis_deg", "kmax_axis_deg"]
@@ -95,6 +153,9 @@ class Config:
             "eye": {"OD": 0, "OS": 1},
         }
     )
+
+    # ── Logistic regression naive baseline ────────────────────────────
+    LOGISTIC_BASELINE_MAX_ITER: int = 1000
 
     # ── Unlabeled tabular column definitions ──────────────────────────
     UNLABELED_ANGULAR_COLS: List[str] = field(

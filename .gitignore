@@ -10,21 +10,40 @@ venv/
 env.bak/
 venv.bak/
 *.egg-info/
+dist/
+build/
 
-# PyTorch
+# PyTorch checkpoints and cached tensors
 *.pt
 *.pth
+*.npz
 
 # DVC
 .dvc/cache
 
-# Project specific
+# Project specific — checkpoints, results, mlflow
 checkpoints/
 results/
 mlruns/
 mlruns.db
+
+# Dataset images and raw data (large files — not stored in git)
+data/
+ORBSCAN_Dataset/
+"Multimodal Orbscan IIz Dataset 3,000 Axial Power A"/
 Images/
 Images.zip
+*.png
+*.jpg
+*.jpeg
+*.tiff
+*.tif
+
+# Dataset CSVs (contain patient data — excluded for privacy)
+ORBSCAN_Dataset/clinical_data_and_labels.csv
+patient_eye_groups.csv
 
 # Logs
 *.log
+a100_session.log
+setup_a100.log

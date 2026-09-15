@@ -65,7 +65,7 @@ def test_tabular_pca_encoder():
 
 
 def test_tabular_mlp_encoder():
-    """Verify TabularMLPEncoder compresses tabular features to 8 dims in [0, π]."""
+    """Verify TabularMLPEncoder compresses tabular features to 8 dims in (-1, 1)."""
     model = TabularMLPEncoder(input_dim=15, latent_dim=8)
     model.eval()
 
@@ -74,5 +74,5 @@ def test_tabular_mlp_encoder():
         out = model(dummy_tab)
 
     assert out.shape == (4, 8)
-    assert (out >= 0.0).all()
-    assert (out <= np.pi).all()
+    assert (out >= -1.0).all()
+    assert (out <= 1.0).all()

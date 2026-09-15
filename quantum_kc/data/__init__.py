@@ -14,7 +14,9 @@ from .preprocessing import (
     scale_to_quantum_range,
     impute_missing,
     build_tabular_pipeline,
+    StudentTabularPipeline,
 )
+from .split_utils import verify_fold_balance, get_patient_groups, log_test_set_stats
 
 __all__ = [
     "CornOrbDataset",
@@ -28,4 +30,8 @@ __all__ = [
     "scale_to_quantum_range",
     "impute_missing",
     "build_tabular_pipeline",
+    "StudentTabularPipeline",
+    "verify_fold_balance",
+    "get_patient_groups",
+    "log_test_set_stats",
 ]
