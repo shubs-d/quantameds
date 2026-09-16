@@ -54,7 +54,8 @@ model = HybridQuantumClassifier(
 
 if CHECKPOINT.exists():
     model.load_state_dict(
-        torch.load(str(CHECKPOINT), map_location=DEVICE, weights_only=True)
+        torch.load(str(CHECKPOINT), map_location=DEVICE, weights_only=True),
+        strict=False,
     )
     logger.info("✓ Loaded trained model from %s", CHECKPOINT)
 else:
