@@ -42,6 +42,7 @@ qml/checkpoints/
 *.tif
 *.png
 !results/*.png
+!frontend/app/assets/*.png
 
 # Dataset CSVs with confidential patient info
 ORBSCAN_Dataset/clinical_data_and_labels.csv
