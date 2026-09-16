@@ -1,0 +1,71 @@
+{
+  "with_pretraining": [
+    {
+      "accuracy": 0.4217391304347826,
+      "precision": 0.4009009009009009,
+      "sensitivity": 1.0,
+      "recall": 1.0,
+      "specificity": 0.05673758865248227,
+      "f1": 0.572347266881029,
+      "kappa": 0.044480539763853244,
+      "confusion_matrix": [
+        [
+          8,
+          133
+        ],
+        [
+          0,
+          89
+        ]
+      ],
+      "threshold": 0.5,
+      "n_tp": 89,
+      "n_fp": 133,
+      "n_fn": 0,
+      "n_tn": 8,
+      "auc_roc": 0.9516296119212686,
+      "fold": 1,
+      "head_type": "classical",
+      "alpha": 0.5,
+      "beta": 0.5,
+      "seed": 42,
+      "condition": "with_pretraining",
+      "teacher_auc": 0.9905171726830823
+    }
+  ],
+  "without_pretraining": [
+    {
+      "accuracy": 0.4217391304347826,
+      "precision": 0.4009009009009009,
+      "sensitivity": 1.0,
+      "recall": 1.0,
+      "specificity": 0.05673758865248227,
+      "f1": 0.572347266881029,
+      "kappa": 0.044480539763853244,
+      "confusion_matrix": [
+        [
+          8,
+          133
+        ],
+        [
+          0,
+          89
+        ]
+      ],
+      "threshold": 0.5,
+      "n_tp": 89,
+      "n_fp": 133,
+      "n_fn": 0,
+      "n_tn": 8,
+      "auc_roc": 0.9516296119212686,
+      "fold": 1,
+      "head_type": "classical",
+      "alpha": 0.5,
+      "beta": 0.5,
+      "seed": 42,
+      "condition": "without_pretraining",
+      "teacher_auc": 0.9905171726830823
+    }
+  ],
+  "finding": "Stage 1 pretraining did not meaningfully improve Student AUC: pretrained=0.952 \u00b1 0.000, from-scratch=0.952 \u00b1 0.000 (\u0394=+0.000)."
+}

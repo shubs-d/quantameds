@@ -1,0 +1,55 @@
+{
+    "accuracy": 0.9656357388316151,
+    "precision": 0.9904761904761905,
+    "sensitivity": 0.9203539823008849,
+    "recall": 0.9203539823008849,
+    "specificity": 0.9943820224719101,
+    "f1": 0.9541284403669725,
+    "kappa": 0.9267150196433969,
+    "confusion_matrix": [
+        [
+            177,
+            1
+        ],
+        [
+            9,
+            104
+        ]
+    ],
+    "threshold": 0.5,
+    "n_tp": 104,
+    "n_fp": 1,
+    "n_fn": 9,
+    "n_tn": 177,
+    "auc_roc": 0.9882171621755991,
+    "model": "teacher",
+    "checkpoint_path": "checkpoints/teacher_finetuned_with_pretrain_s42_fold1.pt",
+    "checkpoint_sha256": "eb1580b06ccde2da26570e3e98de248e700da79bd53d40d33be6c5c06c5b0b7f",
+    "high_sensitivity_threshold": 6.348567694658414e-05,
+    "metrics_at_hs_threshold": {
+        "accuracy": 0.38831615120274915,
+        "precision": 0.38831615120274915,
+        "sensitivity": 1.0,
+        "recall": 1.0,
+        "specificity": 0.0,
+        "f1": 0.5594059405940595,
+        "kappa": 0.0,
+        "confusion_matrix": [
+            [
+                0,
+                178
+            ],
+            [
+                0,
+                113
+            ]
+        ],
+        "threshold": 6.348567694658414e-05,
+        "n_tp": 113,
+        "n_fp": 178,
+        "n_fn": 0,
+        "n_tn": 0,
+        "auc_roc": 0.9882171621755991
+    },
+    "threshold_rationale": "Threshold Selection Rationale: This is a triage screening tool. A false negative (missed KC case) is more costly than a false positive (unnecessary referral). Therefore, the operating threshold is chosen to achieve \u226590% sensitivity, accepting lower specificity. The threshold reported below is the lowest value at which sensitivity \u2265 0.90."
+}

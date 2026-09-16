@@ -1,0 +1,18 @@
+{
+  "welch_t_test": {
+    "t_stat": NaN,
+    "p_value": NaN,
+    "significant_at_05": false,
+    "classical_auc_mean": 0.7138417403777194,
+    "classical_auc_std": 0.3577936360090127,
+    "quantum_auc_mean": 0.6990995298430154,
+    "quantum_auc_std": 0.0,
+    "delta": -0.014742210534704037,
+    "n_runs": 3
+  },
+  "plain_language_finding": "The hybrid quantum bottleneck underperforms the classical linear head: AUC 0.699 \u00b1 0.000 vs. 0.714 \u00b1 0.358 (\u0394=-0.015, p-value N/A (single run; multi-seed required)). The difference is not statistically significant and should not be reported as a definitive quantum advantage. Both variants demonstrate that tabular-only distillation can recover meaningful diagnostic signal from the Teacher image encoder.",
+  "lr_baseline_auc": {
+    "mean": 0.983543800338073,
+    "std": 0.0
+  }
+}

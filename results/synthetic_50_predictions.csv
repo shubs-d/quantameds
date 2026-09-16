@@ -1,0 +1,51 @@
+Case_ID,True_Class,OD_Kmax,OD_Cyl,OD_Axis,OD_Prob,OS_Kmax,OS_Cyl,OS_Axis,OS_Prob,Patient_Max_Prob,Prediction_tau_0.50,Prediction_tau_0.26
+1,Gray Area,46.25,-1.0,70.0,0.3554,48.25,-2.75,120.0,0.7311,0.7311,KC Suspicious,KC Suspicious
+2,Gray Area,48.0,-2.25,50.0,0.6283,46.75,-1.75,85.0,0.5967,0.6283,KC Suspicious,KC Suspicious
+3,Gray Area,47.5,-1.75,110.0,0.5991,48.25,-2.75,10.0,0.2397,0.5991,KC Suspicious,KC Suspicious
+4,Normal,42.5,-1.0,35.0,0.1408,45.25,-0.5,65.0,0.2152,0.2152,Normal,Normal
+5,Normal,43.25,-1.5,75.0,0.4858,44.0,-1.5,35.0,0.2144,0.4858,Normal,KC Suspicious
+6,Keratoconus,61.0,-6.75,80.0,0.8435,51.25,-6.0,160.0,0.7614,0.8435,KC Suspicious,KC Suspicious
+7,Gray Area,46.5,-1.75,5.0,0.1209,47.0,-2.25,115.0,0.6779,0.6779,KC Suspicious,KC Suspicious
+8,Normal,42.0,-0.75,135.0,0.1761,45.25,-1.25,60.0,0.4153,0.4153,Normal,KC Suspicious
+9,Gray Area,46.75,-1.75,85.0,0.5967,46.5,-1.25,105.0,0.4581,0.5967,KC Suspicious,KC Suspicious
+10,Normal,43.75,-1.25,180.0,0.1055,42.5,-1.0,40.0,0.1687,0.1687,Normal,Normal
+11,Gray Area,47.75,-2.5,105.0,0.7138,47.25,-2.5,165.0,0.2356,0.7138,KC Suspicious,KC Suspicious
+12,Gray Area,48.0,-2.75,120.0,0.7298,48.25,-2.5,25.0,0.3256,0.7298,KC Suspicious,KC Suspicious
+13,Normal,43.25,-1.5,80.0,0.4866,44.5,-0.75,175.0,0.0962,0.4866,Normal,KC Suspicious
+14,Normal,44.25,-0.5,150.0,0.1091,44.75,-0.5,70.0,0.2139,0.2139,Normal,Normal
+15,Keratoconus,54.75,-2.5,115.0,0.7476,59.25,-3.75,10.0,0.4832,0.7476,KC Suspicious,KC Suspicious
+16,Keratoconus,49.5,-3.5,170.0,0.3602,51.75,-3.75,140.0,0.7674,0.7674,KC Suspicious,KC Suspicious
+17,Normal,42.75,-1.25,85.0,0.4134,42.5,-0.75,15.0,0.0988,0.4134,Normal,KC Suspicious
+18,Gray Area,47.75,-2.75,100.0,0.7367,47.75,-2.25,170.0,0.1778,0.7367,KC Suspicious,KC Suspicious
+19,Keratoconus,49.75,-4.5,85.0,0.8334,60.0,-6.5,10.0,0.7785,0.8334,KC Suspicious,KC Suspicious
+20,Normal,45.5,-1.25,40.0,0.2177,44.25,-0.75,130.0,0.2181,0.2181,Normal,Normal
+21,Keratoconus,58.5,-3.75,55.0,0.8258,52.75,-5.75,35.0,0.8258,0.8258,KC Suspicious,KC Suspicious
+22,Gray Area,47.25,-3.0,55.0,0.7587,47.5,-1.0,45.0,0.2213,0.7587,KC Suspicious,KC Suspicious
+23,Keratoconus,50.25,-5.0,165.0,0.6385,58.5,-6.0,25.0,0.8107,0.8107,KC Suspicious,KC Suspicious
+24,Keratoconus,54.0,-4.75,90.0,0.8442,54.5,-6.5,55.0,0.8488,0.8488,KC Suspicious,KC Suspicious
+25,Keratoconus,55.0,-5.75,70.0,0.8485,50.25,-2.5,160.0,0.306,0.8485,KC Suspicious,KC Suspicious
+26,Gray Area,46.75,-1.75,110.0,0.5922,48.0,-2.25,30.0,0.3338,0.5922,KC Suspicious,KC Suspicious
+27,Gray Area,46.75,-1.25,75.0,0.4343,47.75,-2.75,125.0,0.72,0.72,KC Suspicious,KC Suspicious
+28,Gray Area,48.0,-2.75,135.0,0.6901,47.75,-2.75,60.0,0.7439,0.7439,KC Suspicious,KC Suspicious
+29,Gray Area,47.25,-2.25,165.0,0.2028,47.0,-2.0,130.0,0.5742,0.5742,KC Suspicious,KC Suspicious
+30,Keratoconus,53.75,-3.75,40.0,0.7658,50.75,-7.0,90.0,0.8452,0.8452,KC Suspicious,KC Suspicious
+31,Keratoconus,52.0,-4.75,95.0,0.8409,58.5,-6.75,40.0,0.8516,0.8516,KC Suspicious,KC Suspicious
+32,Keratoconus,50.25,-4.75,155.0,0.7195,53.5,-7.25,40.0,0.8505,0.8505,KC Suspicious,KC Suspicious
+33,Gray Area,46.25,-1.5,5.0,0.1128,46.75,-1.75,35.0,0.2778,0.2778,Normal,KC Suspicious
+34,Keratoconus,59.75,-7.0,30.0,0.8443,59.25,-4.25,150.0,0.7674,0.8443,KC Suspicious,KC Suspicious
+35,Normal,43.75,-1.25,20.0,0.1148,43.0,-1.25,65.0,0.4081,0.4081,Normal,KC Suspicious
+36,Keratoconus,53.5,-6.75,170.0,0.757,56.0,-4.75,75.0,0.8444,0.8444,KC Suspicious,KC Suspicious
+37,Keratoconus,54.75,-4.25,170.0,0.5306,51.5,-2.5,150.0,0.4543,0.5306,KC Suspicious,KC Suspicious
+38,Normal,43.0,-0.75,25.0,0.1065,43.5,-0.75,85.0,0.2668,0.2668,Normal,KC Suspicious
+39,Gray Area,48.0,-2.75,145.0,0.5533,47.5,-1.75,165.0,0.1511,0.5533,KC Suspicious,KC Suspicious
+40,Keratoconus,54.75,-3.5,15.0,0.4511,59.0,-5.0,0.0,0.622,0.622,KC Suspicious,KC Suspicious
+41,Normal,43.75,-1.0,135.0,0.2305,43.5,-0.5,165.0,0.0978,0.2305,Normal,Normal
+42,Keratoconus,60.5,-8.0,95.0,0.8282,51.25,-6.5,155.0,0.8033,0.8282,KC Suspicious,KC Suspicious
+43,Normal,42.5,-1.25,55.0,0.3689,42.25,-0.5,150.0,0.1085,0.3689,Normal,KC Suspicious
+44,Normal,42.75,-1.0,180.0,0.0998,43.25,-1.0,95.0,0.3441,0.3441,Normal,KC Suspicious
+45,Normal,42.5,-0.5,115.0,0.1973,44.25,-1.25,5.0,0.1062,0.1973,Normal,Normal
+46,Normal,43.0,-0.5,135.0,0.1433,43.25,-0.5,20.0,0.0976,0.1433,Normal,Normal
+47,Gray Area,48.25,-2.75,85.0,0.7469,46.5,-1.5,35.0,0.2252,0.7469,KC Suspicious,KC Suspicious
+48,Normal,42.0,-0.5,155.0,0.1041,44.25,-0.5,85.0,0.2107,0.2107,Normal,Normal
+49,Normal,42.0,-0.75,85.0,0.2578,42.5,-1.25,125.0,0.3615,0.3615,Normal,KC Suspicious
+50,Keratoconus,59.75,-7.5,165.0,0.8161,57.0,-6.5,40.0,0.85,0.85,KC Suspicious,KC Suspicious

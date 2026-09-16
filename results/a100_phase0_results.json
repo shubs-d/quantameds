@@ -1,0 +1,47 @@
+{
+  "phase_0b": {
+    "status": "overwritten",
+    "mtime": "2026-09-15T13:41:29.059476",
+    "sha256": "e72f73e8492277d94e5adcc86ec5b51eb618b3ef27d719d1ebe4bc25f7d4b512",
+    "verdict": "OVERWRITTEN \u2014 file mtime is LATER than all three evaluate_model runs. The 0.7698/0.8786/[[128,50],[17,96]] baseline is NOT reproducible from current weights."
+  },
+  "phase_0c": {
+    "teacher_cnn": {
+      "accuracy": 0.8900343642611683,
+      "precision": 0.8045112781954887,
+      "recall": 0.9469026548672567,
+      "auc_roc": 0.945187431639654,
+      "cm": [
+        [
+          152,
+          26
+        ],
+        [
+          6,
+          107
+        ]
+      ],
+      "checkpoint": "teacher_finetuned_with_pretrain_s42_fold1.pt",
+      "sha256": "eb1580b06ccde2da26570e3e98de248e700da79bd53d40d33be6c5c06c5b0b7f"
+    },
+    "hybrid_vqc": {
+      "accuracy": 0.7697594501718213,
+      "precision": 0.7555555555555555,
+      "recall": 0.6017699115044248,
+      "auc_roc": 0.7452272049318883,
+      "cm": [
+        [
+          156,
+          22
+        ],
+        [
+          45,
+          68
+        ]
+      ],
+      "checkpoint": "hybrid_classifier_best.pt",
+      "sha256": "e72f73e8492277d94e5adcc86ec5b51eb618b3ef27d719d1ebe4bc25f7d4b512"
+    }
+  },
+  "timestamp": "2026-09-15T14:04:56.377345"
+}

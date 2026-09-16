@@ -12,36 +12,44 @@ venv.bak/
 *.egg-info/
 dist/
 build/
+.pytest_cache/
 
-# PyTorch checkpoints and cached tensors
-*.pt
-*.pth
-*.npz
-
-# DVC
+# DVC & MLflow
 .dvc/cache
-
-# Project specific — checkpoints, results, mlflow
-checkpoints/
-results/
 mlruns/
 mlruns.db
 
-# Dataset images and raw data (large files — not stored in git)
-data/
-ORBSCAN_Dataset/
+# Large raw image datasets (Gigabytes — not stored in git)
+/data/ORBSCAN_Dataset/
+/data/Multimodal*
+/ORBSCAN_Dataset/
 "Multimodal Orbscan IIz Dataset 3,000 Axial Power A"/
 Images/
 Images.zip
-*.png
+
+# Specific large raw datasets in /data (keep synthetic csv and cached latents)
+/data/*
+!/data/ark_synthetic_data_50.csv
+!/data/cached_teacher_latents.pt
+
+# Ignore duplicate checkpoints inside qml/
+qml/checkpoints/
+
+# Ignore general image files, but keep results dashboard charts
 *.jpg
 *.jpeg
 *.tiff
 *.tif
+*.png
+!results/*.png
 
-# Dataset CSVs (contain patient data — excluded for privacy)
+# Dataset CSVs with confidential patient info
 ORBSCAN_Dataset/clinical_data_and_labels.csv
 patient_eye_groups.csv
+
+# Temporary lock files
+.~*
+*.tmp
 
 # Logs
 *.log
